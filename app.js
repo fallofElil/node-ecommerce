@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+//routes
+const userRoutes = require('./routes/user');
+
 //app
 const app = express();
 
@@ -13,10 +16,9 @@ mongoose
     })
     .then(() => console.log('БД подлкючена'));
 
-//rotes
-app.get('/', (req, res) => {
-    res.send('is works bitch')
-});
+//routes middleware
+app.use(userRoutes);
+
 
 const port = process.env.PORT || 8080;
 
