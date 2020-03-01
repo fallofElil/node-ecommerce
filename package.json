@@ -1,0 +1,9 @@
+{
+  "name": "node-ecommerce",
+  "version": "1.0.0",
+  "description": "Backend for ecommerce website",
+  "main": "index.js",
+  "repository": "git@github.com:fallofElil/node-ecommerce.git",
+  "author": "Sergey Bidenko",
+  "license": "MIT"
+}
