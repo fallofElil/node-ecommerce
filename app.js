@@ -1,5 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 //routes
@@ -16,9 +19,13 @@ mongoose
     })
     .then(() => console.log('БД подлкючена'));
 
-//routes middleware
-app.use(userRoutes);
+//middleware
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(cookieParser());
 
+//routes middleware
+app.use('/api', userRoutes);
 
 const port = process.env.PORT || 8080;
 
