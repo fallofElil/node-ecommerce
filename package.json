@@ -3,7 +3,17 @@
   "version": "1.0.0",
   "description": "Backend for ecommerce website",
   "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
   "repository": "git@github.com:fallofElil/node-ecommerce.git",
   "author": "Sergey Bidenko",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2",
+    "nodemon": "^2.0.2"
+  }
 }
