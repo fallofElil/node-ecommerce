@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 //routes
+const homeRoute = require('./routes/home');
 const userRoutes = require('./routes/user');
 
 //app
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 //routes middleware
+app.use('/', homeRoute);
 app.use('/api', userRoutes);
 
 const port = process.env.PORT || 8080;

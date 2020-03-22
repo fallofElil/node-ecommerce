@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
 const {errorHandler} = require('../helpers/dbErrorHandlers');
 
 exports.signup = (req, res) => {
@@ -16,3 +17,7 @@ exports.signup = (req, res) => {
         });
     });
 };
+
+exports.signin = (req, res) => {
+
+}
