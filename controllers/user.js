@@ -6,7 +6,11 @@ const expressJwt = require('express-jwt'); // проверка авториза�
 
 exports.regUser = async (req, res) => {
     try {
-        const newUser = await User.create(req.body);
+        const newUser = await User.create({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
+        });
 
          res.status(201).json({
             status: 'success',
