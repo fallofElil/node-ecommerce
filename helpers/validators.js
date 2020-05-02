@@ -16,8 +16,8 @@ const userValidationRules = () => {
         body('password')
             .isLength({min: 6})
             .withMessage('Пароль должен содержать минимум 6 символов'),
-        body('confirmPassword')
-            .equals()
+        /*body('confirmPassword')
+            .equals()*/
     ];
 };
 
