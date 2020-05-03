@@ -11,3 +11,10 @@ exports.userById = (req, res, next, id) => {
         next();
     });
 };
+
+exports.getAllUsers = async (req, res, next) => {
+    User.find({}, (err, users) => {
+        res.json({ users: users });
+        next();
+    })
+};

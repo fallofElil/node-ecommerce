@@ -2,8 +2,6 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken'); // генерация токена
 const expressJwt = require('express-jwt'); // проверка авторизации
 
-//const {errorHandler} = require('../helpers/dbErrorHandlers');
-
 exports.regUser = async (req, res) => {
     try {
         const newUser = await User.create({

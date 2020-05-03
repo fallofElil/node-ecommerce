@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { requireSignIn, isAuth, isAdmin } = require('../controllers/auth');
 
-const { userById } = require('../controllers/user');
+const { userById, getAllUsers } = require('../controllers/user');
 
 router.get('/secret/:userId', requireSignIn, isAuth, isAdmin, (req, res) => {
     res.json({
@@ -12,5 +12,7 @@ router.get('/secret/:userId', requireSignIn, isAuth, isAdmin, (req, res) => {
 });
 
 router.param('userId', userById);
+
+router.get('/users', getAllUsers);
 
 module.exports = router;
