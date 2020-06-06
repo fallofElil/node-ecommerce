@@ -12,6 +12,7 @@ const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const categoryRoutes = require('./routes/category');
 const productRoutes = require('./routes/product');
+const orderRoutes = require('./routes/order');
 
 //app
 const app = express();
@@ -31,11 +32,12 @@ app.use(cookieParser());
 app.use(cors());
 
 //routes middleware
-app.use('/api', authRoutes);
 app.use('/', homeRoute);
+app.use('/api', authRoutes);
 app.use('/api', userRoutes);
 app.use('/api', categoryRoutes);
 app.use('/api', productRoutes);
+app.use('/api', orderRoutes);
 
 const port = process.env.PORT || 8080;
 

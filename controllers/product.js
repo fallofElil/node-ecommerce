@@ -71,8 +71,8 @@ exports.updateProduct = (req, res) => {
         let product = req.product;
         product = _.extend(product, fields);
 
-        if (files.photo) {
-            if (files.photo.size > (5 * Math.pow(1000, 2))) {
+        if (files.prodImage) {
+            if (files.prodImage.size > (5 * Math.pow(1000, 2))) {
                 return res.status(400).json({
                     error: 'Превышен максимальный размер загрузки (5 Мб)'
                 });
@@ -105,4 +105,16 @@ exports.removeProduct = (req, res) => {
             "message": `Товар с идентификатором ${removedProduct._id} удалён успешно`
         });
     })
+}
+
+exports.getAllProducts = async (req, res) => {
+    Product.find()
+        .exec((error, products) => {
+            if (error) {
+                return res.status(400).json({
+                    error: 'Нет подходящей продукции'
+                });
+            }
+            res.json(products)
+        });
 }
