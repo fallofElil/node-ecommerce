@@ -36,15 +36,14 @@ exports.createProduct = (req, res) => {
 
         let product = new Product(fields);
 
-        if (files.photo) {
-            if (files.photo.size > (5 * Math.pow(1000, 2))) {
+        if (files.prodImage) {
+            if (files.prodImage.size > (5 * Math.pow(1000, 2))) {
                 return res.status(400).json({
                    error: 'Превышен максимальный размер загрузки (5 Мб)'
                 });
             }
-            console.debug('PRODUCT IMAGE ', files.photo);
-            product.prodImage.data = fs.readFileSync(files.photo.path);
-            product.prodImage.contentType = files.photo.type
+            product.prodImage.data = fs.readFileSync(files.prodImage.path);
+            product.prodImage.contentType = files.prodImage.type
         }
 
         product.save((err, result) => {

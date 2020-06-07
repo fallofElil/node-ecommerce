@@ -18,3 +18,15 @@ exports.create = async (req, res) => {
         });
     }
 };
+
+exports.get = async (req, res) => {
+    Category.find()
+        .exec((error, categories) => {
+            if (error) {
+                return res.status(400).json({
+                    error: 'Нет подходящей категории'
+                });
+            }
+            res.json(categories)
+        });
+}

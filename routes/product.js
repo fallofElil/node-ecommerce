@@ -15,6 +15,7 @@ const { userById } = require('../controllers/user');
 router.get('/products', getAllProducts);
 router.get('/product/:productId', getProduct);
 router.post('/product/create/:userId', requireSignIn, isAuth, isAdmin, createProduct);
+router.post('/product/t-create', createProduct);
 router.delete('/product/:productId/:userId', requireSignIn, isAuth, isAdmin, removeProduct);
 router.put('/product/:productId/:userId', requireSignIn, isAuth, isAdmin, updateProduct);
 
