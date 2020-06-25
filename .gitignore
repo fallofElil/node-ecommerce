@@ -1,0 +1,7 @@
+.idea
+
+node_modules
+.env
+init-mongo.js
+
+data
